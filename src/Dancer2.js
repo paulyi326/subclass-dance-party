@@ -5,11 +5,9 @@ var Dancer2 = function(top, left, timeBetweenSteps){
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
   debugger;
-  this.$node = $('<span class="dancer"><img src="http://img2.wikia.nocookie.net/__cb20130505141028/lionking/images/8/83/Simba_Run_Animated2.gif"></span>');
-  this.x = $("body").height() * Math.random() * 0.8;
-  this.y = $("body").width() * Math.random() * 0.8;
+  this.$node = $('<div class="dancer"><img src="http://rs877.pbsrc.com/albums/ab333/jericlean/7.gif~c200"></div>');
   debugger;
-  this.setPosition(this.x, this.y);
+  this.setPosition(top, left);
 
 };
 
@@ -24,9 +22,13 @@ Dancer2.prototype.step = function() {
     debugger;
     Dancer.prototype.step.call(this);
 
-    this.left = this.left - 70;
-    if (this.left <= 0){
-      this.left = $("body").width();
+    this.left = this.left + 50;
+    this.top = this.top + 20
+    if (this.left >= $('body').width() - 300){
+      this.left = 0;
+    }
+    if (this.top >= $('body').height() - 200) {
+      this.top = 0;
     }
     this.setPosition(this.top, this.left);
     debugger;

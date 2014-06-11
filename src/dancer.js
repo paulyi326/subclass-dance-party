@@ -31,4 +31,19 @@ var Dancer = function(top, left, timeBetweenSteps){
       left: left
     };
     this.$node.css(styleSettings);
+    for (var i = 0; i < window.dancers.length; i++) {
+      if (window.dancers[i] === this) {
+        continue;
+      }
+      if (this.distance(window.dancers[i]) <= 100) {
+        this.$node.hide();
+      }
+    }
+  };
+
+  Dancer.prototype.distance = function(neighbor) {
+    var dx = Math.abs(this.left - neighbor.left);
+    var dy = Math.abs(this.top - neighbor.top);
+    // alert(Math.sqrt(dx*dx + dy*dy));
+    return Math.sqrt(dx*dx + dy*dy);
   };

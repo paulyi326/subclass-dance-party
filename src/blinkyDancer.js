@@ -4,6 +4,9 @@ var BlinkyDancer = function(top, left, timeBetweenSteps){
   // var blinkyDancer = new Dancer(top, left, timeBetweenSteps);
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
+
+  this.$node = $('<div class="dancer"><img src="http://img.izismile.com/img/img5/20121221/1000/some_of_the_best_gifs_of_2012_44.gif"></div>');
+  this.setPosition(top, left);
 };
 
 BlinkyDancer.prototype = Object.create(Dancer.prototype);
@@ -14,9 +17,9 @@ BlinkyDancer.prototype.step = function(){
   debugger;
   if (!this.lineup) {
     Dancer.prototype.step.call(this);
-    var x = Math.random() * 800;
-    var y = Math.random() * 800;
-    this.setPosition(x, y);
+    var left = Math.random() * $('body').width() * 0.8;
+    var top = Math.random() * $('body').height() * 0.6;
+    this.setPosition(top, left);
 
     // toggle() is a jQuery method to show/hide the <span> tag.
     // See http://api.jquery.com/category/effects/ for this and

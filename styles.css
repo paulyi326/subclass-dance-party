@@ -22,6 +22,10 @@ body, a:link, a:visited, a:active{
   background-color: #555;
 }
 
+.hidden {
+  display: none;
+}
+
 .title{
   background-color: #777;
 }
@@ -31,8 +35,8 @@ body, a:link, a:visited, a:active{
 }
 
 .BlinkyDancer {
-  border:10px solid blue;
-  border-radius:10px;
+  /*border:10px solid blue;
+  border-radius:10px;*/
   position:absolute;
 }
 
@@ -41,7 +45,7 @@ body, a:link, a:visited, a:active{
 }
 
 .Dancer3 {
-  border:30px solid green;
+  /*border:30px solid green;*/
   /*border-radius:10px;*/
   position:absolute;
 }

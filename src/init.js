@@ -25,19 +25,27 @@ $(document).ready(function(){
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random() * .8,
       $("body").width() * Math.random() * .8,
-      Math.random() * 1000
+      Math.random() * 500
     );
     dancer.lineup = false;
 
     window.dancers.push(dancer);
 
     $('body').append(dancer.$node.addClass(dancerMakerFunctionName));
+
+    $(".dancer").on("mouseover", function(event) {
+      $(this).hide();
+    });
   });
 
   $(".alignDancerButton").on("click", function(event){
     for (var i = 0; i < window.dancers.length; i++) {
       var dancer = window.dancers[i];
-      dancer.setPosition(dancer.top, 0);
+      if (dancer.constructor === Dancer3) {
+        dancer.setPosition(dancer.top, $('body').width() - 200);
+      } else {
+        dancer.setPosition(dancer.top, 0);
+      }
       dancer.lineup = true;
     }
   });
@@ -49,6 +57,7 @@ $(document).ready(function(){
       dancer.step();
     }
   });
+
 
 });
 
